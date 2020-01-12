@@ -1,5 +1,5 @@
 # For Debian
-## 1. install zsh
+## 1. Install zsh
 - ```$ sudo apt-get install zsh```
 ```sh
 $ cd ~
