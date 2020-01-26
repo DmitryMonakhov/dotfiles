@@ -3,9 +3,9 @@
 ```sh
 $ sudo apt-get install zsh`
 ```
-### For Debian MacOS
+### For MacOS
 ```sh
-$ brew install zsh`
+$ brew install zsh
 ```
 ## 2. Configure theme
 ```sh
