@@ -1,0 +1,11 @@
+## Used vscode extensions
+- donjayamanne.githistory
+- eamodio.gitlens
+- ms-python.python
+- ms-vscode.powershell
+- ms-vscode.powershell-preview
+- redhat.vscode-yaml
+- vscode-icons-team.vscode-icons
+- vscoss.vscode-ansible
+- wholroyd.jinja
+- yzhang.markdown-all-in-one
