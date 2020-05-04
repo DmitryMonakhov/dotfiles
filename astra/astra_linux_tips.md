@@ -6,15 +6,15 @@ deb https://mirror.yandex.ru/debian/ stretch main contrib non-free
 deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
 ```
 ### GPG key install
-``` sh
+```
 apt install debian-archive-keyring
 apt install debian-keyring
 ```
-
 ### Auto configure network interface
+```
 allow-hotplug eth0
 iface eth0 inet dhcp
-
+```
 ### Install packages
 `apt install vim htop atop mc fail2ban git -y`
 #### rkhunter 1.4.6
