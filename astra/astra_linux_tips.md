@@ -1,11 +1,12 @@
 ### cat /etc/apt/sources.list
+```
 deb https://download.astralinux.ru/astra/stable/orel/repository/ orel main contrib non-free
 deb http://mirror.yandex.ru/astra/stable/orel/repository/ orel main contrib non-free
 deb https://mirror.yandex.ru/debian/ stretch main contrib non-free
 deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
-
-### GPG key install
 ```
+### GPG key install
+``` sh
 apt install debian-archive-keyring
 apt install debian-keyring
 ```
