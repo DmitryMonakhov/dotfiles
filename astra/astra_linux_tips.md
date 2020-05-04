@@ -5,7 +5,7 @@ deb http://mirror.yandex.ru/astra/stable/orel/repository/ orel main contrib non-
 deb https://mirror.yandex.ru/debian/ stretch main contrib non-free
 deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
 ```
-### GPG key install
+### GPG keys install
 ```
 apt install debian-archive-keyring
 apt install debian-keyring
