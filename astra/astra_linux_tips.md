@@ -9,7 +9,7 @@ deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
 ```
 apt install debian-archive-keyring debian-keyring -y
 ```
-### configure network interface
+### Configure network interface
 #### auto
 ```
 allow-hotplug eth0
@@ -41,7 +41,8 @@ cd /opt && git clone https://salsa.debian.org/pkg-security-team/rkhunter.git
 #### configure fail2ban & iptables
 `mkdir /var/log/{fail2ban,iptables}`
 ##### change log folder at
-```/etc/fail2ban/fail2ban.conf 
+```
+/etc/fail2ban/fail2ban.conf 
 &&
 systemctl restart fail2ban
 ```
