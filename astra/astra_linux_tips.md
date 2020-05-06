@@ -21,15 +21,15 @@ iface eth0 inet dhcp
 cd /opt && git clone https://salsa.debian.org/pkg-security-team/rkhunter.git
 ./installer.sh --install
 ```
-#### Enable byobu
+#### enable byobu
 `byobu-enable`
 #### configure fail2ban & iptables
 `mkdir /var/log/{fail2ban,iptables}`
-change log folder at `/etc/fail2ban/fail2ban.conf` && `systemctl restart fail2ban`
-create /etc/rsyslog.d/iptables.conf:
+##### change log folder at `/etc/fail2ban/fail2ban.conf` && `systemctl restart fail2ban`
+##### create /etc/rsyslog.d/iptables.conf:
 ```
 :msg, contains, "IPTABLES DENIED" -/var/log/iptables/iptables.log
 & ~
 ```
-restart rsyslog:
+##### restart rsyslog:
 ```systemctl restart rsyslog.service```
