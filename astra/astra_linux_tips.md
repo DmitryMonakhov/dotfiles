@@ -58,7 +58,8 @@ systemctl restart fail2ban
 ##### restart rsyslog:
 ```systemctl restart rsyslog.service```
 ##### configure logs rotate:
-- cat /etc/logrotate.d/fail2ban:
+cat /etc/logrotate.d/fail2ban:
+```
 /var/log/fail2ban/fail2ban.log {
 
     daily
@@ -76,7 +77,9 @@ systemctl restart fail2ban
     # create 640 fail2ban adm
     create 640 root adm
 }
-- cat /etc/logrotate.d/iptables:
+```
+cat /etc/logrotate.d/iptables:
+```
 /var/log/iptables/iptables.log
 {
         rotate 30
@@ -87,7 +90,9 @@ systemctl restart fail2ban
         delaycompress
         sharedscripts
 }
-- cat /etc/logrotate.d/rkhunter:
+```
+cat /etc/logrotate.d/rkhunter:
+```
 /var/log/rkhunter/rkhunter.log {
         daily
         missingok
@@ -97,7 +102,8 @@ systemctl restart fail2ban
         notifempty
         create 640 root adm
 }
-- testing rotate: 
+```
+testing rotate: 
 ```
 sudo logrotate -v -f /etc/logrotate.conf
 ```
