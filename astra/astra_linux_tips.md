@@ -9,14 +9,29 @@ deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
 ```
 apt install debian-archive-keyring debian-keyring -y
 ```
-### Auto configure network interface
+### configure network interface
+#### auto
 ```
 allow-hotplug eth0
 iface eth0 inet dhcp
 ```
+#### static
+```
+# The primary network interface
+allow-hotplug eth0
+iface eth0 inet static
+        address x.x.x.x
+        netmask 255.255.255.0
+        network x.x.x.x
+        broadcast x.x.x.x
+        gateway x.x.x.x
+        dns-nameserver x.x.x.x
+        dns-nameserver x.x.x.x
+        dns-nameserver x.x.x.x
+```
 ### Install packages
 `apt install vim git htop atop fail2ban mc iptables-persistent byobu -y`
-#### rkhunter 1.4.6
+#### rkhunter latest
 ```
 cd /opt && git clone https://salsa.debian.org/pkg-security-team/rkhunter.git
 ./installer.sh --install
@@ -25,7 +40,11 @@ cd /opt && git clone https://salsa.debian.org/pkg-security-team/rkhunter.git
 `byobu-enable`
 #### configure fail2ban & iptables
 `mkdir /var/log/{fail2ban,iptables}`
-##### change log folder at `/etc/fail2ban/fail2ban.conf` && `systemctl restart fail2ban`
+##### change log folder at
+```/etc/fail2ban/fail2ban.conf 
+&&
+systemctl restart fail2ban
+```
 ##### create /etc/rsyslog.d/iptables.conf:
 ```
 :msg, contains, "IPTABLES DENIED" -/var/log/iptables/iptables.log
