@@ -1,4 +1,4 @@
-### cat /etc/apt/sources.list
+### Add source at /etc/apt/sources.list
 ```
 deb https://download.astralinux.ru/astra/stable/orel/repository/ orel main contrib non-free
 deb http://mirror.yandex.ru/astra/stable/orel/repository/ orel main contrib non-free
@@ -50,14 +50,14 @@ systemctl restart fail2ban
 ```
 /etc/rkhunter.conf
 ```
-##### create /etc/rsyslog.d/iptables.conf:
+##### create /etc/rsyslog.d/iptables.conf
 ```
 :msg, contains, "IPTABLES DENIED" -/var/log/iptables/iptables.log
 & ~
 ```
-##### restart rsyslog:
+##### restart rsyslog
 ```systemctl restart rsyslog.service```
-##### configure logs rotate:
+##### configure logs rotate
 cat /etc/logrotate.d/fail2ban:
 ```
 /var/log/fail2ban/fail2ban.log {
