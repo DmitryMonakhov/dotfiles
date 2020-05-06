@@ -23,7 +23,7 @@ cd /opt && git clone https://salsa.debian.org/pkg-security-team/rkhunter.git
 ```
 #### Enable byobu
 `byobu-enable`
-#### fail2ban & iptables
+#### configure fail2ban & iptables
 `mkdir /var/log/{fail2ban,iptables}`
 change log folder at `/etc/fail2ban/fail2ban.conf` && `systemctl restart fail2ban`
 create /etc/rsyslog.d/iptables.conf:
@@ -32,4 +32,4 @@ create /etc/rsyslog.d/iptables.conf:
 & ~
 ```
 restart rsyslog:
-`systemctl restart rsyslog.service`
+```systemctl restart rsyslog.service```
