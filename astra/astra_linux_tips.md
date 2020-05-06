@@ -30,7 +30,7 @@ iface eth0 inet static
         dns-nameserver x.x.x.x
 ```
 ### Install packages
-`apt install vim git htop atop fail2ban mc iptables-persistent byobu -y`
+`apt install vim git htop atop fail2ban mc iptables-persistent byobu lsof ltrace strace -y`
 #### rkhunter latest
 ```
 cd /opt && git clone https://salsa.debian.org/pkg-security-team/rkhunter.git
@@ -39,12 +39,16 @@ cd /opt && git clone https://salsa.debian.org/pkg-security-team/rkhunter.git
 #### enable byobu
 `byobu-enable`
 #### configure fail2ban & iptables
-`mkdir /var/log/{fail2ban,iptables}`
+`mkdir /var/log/{fail2ban,iptables,rkhunter}`
 ##### change log folder at
 ```
 /etc/fail2ban/fail2ban.conf 
 &&
 systemctl restart fail2ban
+```
+##### change log folder at
+```
+/etc/rkhunter.conf
 ```
 ##### create /etc/rsyslog.d/iptables.conf:
 ```
@@ -53,3 +57,47 @@ systemctl restart fail2ban
 ```
 ##### restart rsyslog:
 ```systemctl restart rsyslog.service```
+##### configure logs rotate:
+- cat /etc/logrotate.d/fail2ban:
+/var/log/fail2ban/fail2ban.log {
+
+    daily
+    rotate 90
+    compress
+
+    delaycompress
+    missingok
+    postrotate
+        fail2ban-client flushlogs 1>/dev/null
+    endscript
+
+    # If fail2ban runs as non-root it still needs to have write access
+    # to logfiles.
+    # create 640 fail2ban adm
+    create 640 root adm
+}
+- cat /etc/logrotate.d/iptables:
+/var/log/iptables/iptables.log
+{
+        rotate 30
+        daily
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+}
+- cat /etc/logrotate.d/rkhunter:
+/var/log/rkhunter/rkhunter.log {
+        daily
+        missingok
+        rotate 30
+        compress
+        delaycompress
+        notifempty
+        create 640 root adm
+}
+- testing rotate: 
+```
+sudo logrotate -v -f /etc/logrotate.conf
+```
