@@ -125,4 +125,5 @@ update-initramfs -u -k all
  * [https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/](https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/)
  ### LVM create LV partition at free space
 lvcreate -n LV_NAME -l 100 %FREE VG_NAME
+
 mkfs.ext4 /dev/mapper/LV_NAME
