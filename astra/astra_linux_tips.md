@@ -132,3 +132,5 @@ update-initramfs -u -k all
 lvcreate -n LV_NAME -l 100 %FREE VG_NAME
 mkfs.ext4 /dev/mapper/LV_NAME
 ```
+### .Net Core
+[Диспетчер пакетов Debian 9 — установка .NET Core](https://docs.microsoft.com/ru-ru/dotnet/core/install/linux-package-manager-debian9)
