@@ -1,13 +1,14 @@
 ### Add source at /etc/apt/sources.list
 ```
+deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
 deb https://download.astralinux.ru/astra/stable/orel/repository/ orel main contrib non-free
 deb http://mirror.yandex.ru/astra/stable/orel/repository/ orel main contrib non-free
 deb https://mirror.yandex.ru/debian/ stretch main contrib non-free
-deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
 ```
 ### GPG keys install
 ```
 apt install debian-archive-keyring debian-keyring -y
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 ### Configure network interface
 #### auto
