@@ -123,3 +123,5 @@ update-initramfs -u -k all
 6. Reboot
 7. In memory:
  * [https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/](https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/)
+ ### LVM create LV partition at free space
+lvcreate -n PARTITION_NAME -l 100 %FREE VG_NAME
