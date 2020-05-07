@@ -112,7 +112,13 @@ testing rotate:
 ```
 sudo logrotate -v -f /etc/logrotate.conf
 ```
-### Rename VolumeGroup LVM
+### LVM
+#### create LV partition at free space
+```
+lvcreate -n LV_NAME -l 100 %FREE VG_NAME
+mkfs.ext4 /dev/mapper/LV_NAME
+```
+#### rename VolumeGroup LVM
 1. Reboot your machine and choose recovery mode (not mandatory but it’s better)
 2. Run `vgrename`
 ```
@@ -127,10 +133,9 @@ update-initramfs -u -k all
 6. Reboot
 7. In memory:
  * [https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/](https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/)
- ### LVM create LV partition at free space
+#### 
 ```
-lvcreate -n LV_NAME -l 100 %FREE VG_NAME
-mkfs.ext4 /dev/mapper/LV_NAME
+lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE
 ```
 ### .Net Core
 [Диспетчер пакетов Debian 9 — установка .NET Core](https://docs.microsoft.com/ru-ru/dotnet/core/install/linux-package-manager-debian9)
