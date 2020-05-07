@@ -7,7 +7,7 @@ deb https://mirror.yandex.ru/debian/ stretch main contrib non-free
 ```
 ### GPG keys install
 ```
-apt install debian-archive-keyring debian-keyring -y
+apt install debian-archive-keyring debian-keyring dirmngr -y
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 ### Configure network interface
