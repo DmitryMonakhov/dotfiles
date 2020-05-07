@@ -108,3 +108,16 @@ testing rotate:
 ```
 sudo logrotate -v -f /etc/logrotate.conf
 ```
+### Rename VolumeGroup LVM
+1. Reboot your machine and choose recovery mode (not mandatory but it’s better)
+2. Run `vgrename`
+```
+vgrename actualName NewName
+```
+3. Edit `/etc/fstab` and change all the entries with the new name
+4. Edit `/etc/initramfs-tools/conf.d/resume` and replace the old name with the new one
+5. Rebuild an initramfs:
+```
+update-initramfs -u -k all
+```
+6. Reboot
