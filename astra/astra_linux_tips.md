@@ -140,6 +140,7 @@ lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE
 ### .Net Core
 [Диспетчер пакетов Debian 9 — установка .NET Core](https://docs.microsoft.com/ru-ru/dotnet/core/install/linux-package-manager-debian9)
 ### vim settings
+#### disable visual mode at right click
 ```
 touch ~/.vimrc
 echo "set mouse-=a" > ~/.vimrc
