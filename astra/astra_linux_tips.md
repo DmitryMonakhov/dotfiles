@@ -9,7 +9,7 @@ deb https://mirror.yandex.ru/debian/ stretch main contrib non-free
 ```
 ### GPG keys install
 ```sh
-$ sudo apt install debian-archive-keyring debian-keyring dirmngr dbus ntp -y
+$ sudo apt install debian-archive-keyring debian-keyring dirmngr dbus ntp open-vm-tools -y
 $ sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 $ sudo wget https://nginx.org/keys/nginx_signing.key
 $ sudo apt-key add nginx_signing.key
