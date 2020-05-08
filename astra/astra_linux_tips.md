@@ -126,12 +126,13 @@ vgrename actualName NewName
 ```
 3. Edit `/etc/fstab` and change all the entries with the new name
 4. Edit `/etc/initramfs-tools/conf.d/resume` and replace the old name with the new one
-5. Rebuild an initramfs:
+5. Edit `/boot/grub/grub.cfg` 
+6. Rebuild an initramfs:
 ```
 update-initramfs -u -k all
 ```
-6. Reboot
-7. In memory:
+7. Reboot
+8. In memory:
  * [https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/](https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/)
 #### 
 ```
