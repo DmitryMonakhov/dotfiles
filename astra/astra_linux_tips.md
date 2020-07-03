@@ -173,3 +173,14 @@ sudo apt install pgadmin4-web
 ```
 sudo /usr/pgadmin4/bin/setup-web.sh
 ```
+### Sheduled reboot
+```
+echo "/sbin/shutdown -r now" |at 04:00 tomorrow
+```
+#### Schedule Examples
+```
+at 21:00 today
+at 21:00 tomorrow
+at 21:00 tuesday
+at 21:00 July 11 (Month Day)
+```
