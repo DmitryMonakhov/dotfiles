@@ -184,3 +184,12 @@ at 21:00 tomorrow
 at 21:00 tuesday
 at 21:00 July 11 (Month Day)
 ```
+#### Уменьшение lv, создание нового
+```
+umount /opt
+lvreduce -L 1G -r /dev/mapper/39--VS--ISMGDAPP01--vg-opt
+lvcreate -n app -l 100%FREE 39-VS-ISMGDAPP01-vg
+mkfs -t ext4 /dev/39-VS-ISMGDAPP01-vg/app
+vim /etc/fstab
+mount -a
+```
