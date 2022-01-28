@@ -148,6 +148,32 @@ echo "set mouse-=a" > ~/.vimrc
 source ~/.vimrc
 ```
 
+### prometheus exporter
+#### node-exporter
+```
+wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
+tar -zxvf node_exporter-1.3.1.linux-amd64.tar.gz
+sudo mv node_exporter-1.3.1.linux-amd64.tar.gz/node_exporter /usr/local/bin/
+sudo useradd -rs /bin/false node_exporter
+sudo cat << EOF >> /etc/systemd/system/node_exporter.service
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl enable prometheus
+
+```
 ### pgadmin4
 Install the public key for the repository (if not done previously):
 ```
