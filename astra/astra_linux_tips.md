@@ -220,3 +220,11 @@ mkfs -t ext4 /dev/39-VS-ISMGDAPP01-vg/app
 vim /etc/fstab
 mount -a
 ```
+#### KESL
+##### memory limit
+1. Stop Kaspersky Endpoint Security ```systemctl stop kesl```
+2. In the /var/opt/kaspersky/kesl/common/kesl.ini file, add the following parameter in the [General] section:
+ScanMemoryLimit=<memory usage limit in megabytes>
+3. Start Kaspersky Endpoint Security ```systemctl start kesl```
+##### add key/code
+kesl-control [-L] --install-active-key <path to key file>|<activation code>
