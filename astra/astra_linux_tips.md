@@ -227,4 +227,4 @@ mount -a
 ScanMemoryLimit=<memory usage limit in megabytes>
 3. Start Kaspersky Endpoint Security ```systemctl start kesl```
 ##### add key/code
-kesl-control [-L] --install-active-key <path to key file>|<activation code>
+kesl-control --add-active-key <path to key file>|<activation code>
