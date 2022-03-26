@@ -47,8 +47,9 @@ vgextend VG_NAME /dev/sdX1
 ```
 #### expand hdd at LVM without rebooting
 ```
-ls /sys/class/scsi_device/
+ls -l /sys/class/scsi_device/
 echo 1 > /sys/class/scsi_device/0\:0\:0\:0/device/rescan
   ||
+ls -l /sys/class/block
 echo 1 > /sys/class/block/sdb/device/rescan
 ```
