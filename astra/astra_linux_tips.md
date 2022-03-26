@@ -232,7 +232,7 @@ n -> p -> 1
 t -> 8e -> w
 vgextend VG_NAME /dev/sdX1
 ```
-#### KESL
+## KESL
 ##### memory limit
 1. Stop Kaspersky Endpoint Security ```systemctl stop kesl```
 2. In the /var/opt/kaspersky/kesl/common/kesl.ini file, add the following parameter in the [General] section:
