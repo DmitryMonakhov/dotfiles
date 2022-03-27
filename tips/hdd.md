@@ -15,22 +15,22 @@ vim /etc/fstab
 mount -a
 ```
 #### rename VolumeGroup LVM
-1. Reboot your machine and choose recovery mode (not mandatory but it’s better)
-2. Run `vgrename`
+1. Run `vgrename`
 ```
 vgrename actualName NewName
 ```
-3. Edit `/etc/fstab` and change all the entries with the new name
-4. Edit `/etc/initramfs-tools/conf.d/resume` and replace the old name with the new one
-5. Edit `/boot/grub/grub.cfg` and replace the old name with the new one
-6. Rebuild an initramfs:
+2. Edit `/etc/fstab` and change all the entries with the new name
+If root LVM changed then:
+3. Edit `/etc/initramfs-tools/conf.d/resume` and replace the old name with the new one
+4. Edit `/boot/grub/grub.cfg` and replace the old name with the new one
+5. Rebuild an initramfs:
 ```
 update-initramfs -u -k all
 ```
 7. Reboot
 8. In memory:
  * [https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/](https://www.thegeekdiary.com/centos-rhel-7-how-to-rename-the-volume-group-for-root-and-swap/)
-#### 
+#### view
 ```
 lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE
 ```
