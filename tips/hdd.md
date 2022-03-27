@@ -34,6 +34,7 @@ update-initramfs -u -k all
 ```
 lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE
 ```
+### MBR
 #### add new hdd without rebooting
 ```
 ls /sys/class/scsi_host
