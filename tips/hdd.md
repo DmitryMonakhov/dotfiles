@@ -34,7 +34,7 @@ update-initramfs -u -k all
 ```
 lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,SIZE
 ```
-#### add new hdd at LVM without rebooting
+#### add new hdd without rebooting
 ```
 ls /sys/class/scsi_host
 echo "- - -" > /sys/class/scsi_host/host0/scan
@@ -45,11 +45,15 @@ n -> p -> 1
 t -> 8e -> w
 vgextend VG_NAME /dev/sdX1
 ```
-#### expand hdd at LVM without rebooting
+#### expand curent hdd without rebooting
 ```
 ls -l /sys/class/scsi_device/
 echo 1 > /sys/class/scsi_device/0\:0\:0\:0/device/rescan
   ||
 ls -l /sys/class/block
 echo 1 > /sys/class/block/sdb/device/rescan
+```
+#### expand LVM PV
+```
+pvresize /dev/sdX
 ```
