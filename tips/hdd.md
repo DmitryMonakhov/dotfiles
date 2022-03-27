@@ -52,7 +52,17 @@ ls -l /sys/class/scsi_device/
 echo 1 > /sys/class/scsi_device/0\:0\:0\:0/device/rescan
   ||
 ls -l /sys/class/block
-echo 1 > /sys/class/block/sdb/device/rescan
+echo 1 > /sys/class/block/sdX/device/rescan
+```
+#### expand LVM PV
+```
+pvresize /dev/sdX
+```
+### GPT
+```
+gdisk /dev/sdX
+i -> save "Partition GUID code (Linux LVM)" and "Partition unique GUID"
+d -> n -> insert Partition GUID code (Linux LVM) -> x -> c -> insert "Partition unique GUID"
 ```
 #### expand LVM PV
 ```
