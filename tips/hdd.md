@@ -63,6 +63,7 @@ pvresize /dev/sdX
 gdisk /dev/sdX
 i -> save "Partition GUID code (Linux LVM)" and "Partition unique GUID"
 d -> n -> insert Partition GUID code (Linux LVM) -> x -> c -> insert "Partition unique GUID"
+partprobe
 ```
 #### expand LVM PV
 ```
